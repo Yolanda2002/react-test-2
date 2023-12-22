@@ -6,6 +6,7 @@ import './db';
 import defaultErrHandler from './errHandler'
 import moviesRouter from './api/movies';   
 import authenticate from './authenticate';
+import favoritesRouter from './api/favorates'
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/users', usersRouter);
 app.use('/api/movies', moviesRouter);
+app.use('/api/favorites', favoritesRouter);
 app.use('/api/movies',authenticate,  moviesRouter);
 app.use(defaultErrHandler);
 

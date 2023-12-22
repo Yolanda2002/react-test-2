@@ -39,7 +39,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
                 <li>
                     <Chip label="Genres" sx={{ ...chip }} color="primary" />
                 </li>
-                {movie.genres.map((g) => (
+                {movie.genres?.map((g) => (
                     <li key={g.name}>
                         <Chip label={g.name} sx={{ ...chip }} />
                     </li>
@@ -52,7 +52,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
                 {/* 票房收入 */}
                 <Chip
                     icon={<MonetizationIcon />}
-                    label={`${movie.revenue.toLocaleString()}`}
+                    label={`${movie.revenue?.toLocaleString()}`}
                 />
                 {/* 评分 */}
                 <Chip

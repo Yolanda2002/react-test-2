@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { putFavoriteMovie } from "../api/tmdb-api";
 
 export const MoviesContext = React.createContext(null);
 
@@ -16,6 +17,7 @@ const MoviesContextProvider = (props) => {
       newFavorites = [...favorites];
     }
     setFavorites(newFavorites)
+    putFavoriteMovie(localStorage.getItem('username'),newFavorites.map(ele => ({id: ele})))
   };
   const addReview = (movie, review) => {
     setMyReviews( {...myReviews, [movie.id]: review } )
